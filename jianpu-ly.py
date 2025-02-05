@@ -1,6 +1,7 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 # (can be run with either Python 2 or Python 3)
-
+## (the note and its attachment can put together not separated by space )
+## (the duration can putting also like: 1/8/16/32/64th ->  1q 1s 1d 1h  or, 1/ 1// 1/// 1//// )
 r"""
 # Jianpu (numbered musical notaion) for Lilypond
 # v1.828 (c) 2012-2025 Silas S. Brown
@@ -1320,7 +1321,8 @@ def getLY(score,headers=None,have_final_barline=True):
    aftrnext2 = None
    isInHarmonic = False
    score=re.sub(r"(?<=\s)(g\[[#b',1-9qsdh]+\]\s*)+g\[([#b',1-9qsdh]+)\](?=\s)",lambda m:re.sub(r"\]\s*g\[","",m.group()),score) # merge multiple grace groups
-   for line in score.split("\n"):
+   score = re.sub(r"([()~_\^\\])", lambda m: " " + m.group(1), score) ## separating the attachmet if it‘s not
+    for line in score.split("\n"):
     line = fix_fullwidth(line).strip()
     line=re.sub(r"^%%\s*tempo:\s*(\S+)\s*$",r"\1",line) # to provide an upgrade path for jihuan-tian's fork
     if line.startswith("LP:"):
