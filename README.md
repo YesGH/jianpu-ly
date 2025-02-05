@@ -127,6 +127,11 @@ Unicode approximation instead of Lilypond: `Unicode`
 
 Ignored: `% a comment`
 
+-------
+Attachment and its note can put together not separated by the space
+
+Duration also can be 1/4/8/16/32/64th -> 1 1q 1s 1d 1h, or 1 1/ 1// 1/// 1////  
+
 
 Copyright and Trademarks
 ------------------------
